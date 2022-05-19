@@ -23,7 +23,7 @@ const Button = React.forwardRef<HTMLAnchorElement, Props>(
                 onClick={onClick}
                 ref={ref}
                 className={`${
-                    full ? 'w-full' : ''
+                    full ? 'w-full' : 'w-fit'
                 } flex items-center justify-center py-4 px-5 font-display text-xl font-bold ${
                     type ? typeStyle[type] : typeStyle.primary
                 } ${className}`}
