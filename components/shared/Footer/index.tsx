@@ -12,10 +12,10 @@ const Footer = (props: Props) => {
 
     return (
         <div className="w-full py-10 bg-gray-900">
-            <div className="relative mx-auto flex w-[90%] max-w-[1444px] justify-between text-gray-400 lg:w-full lg:px-10 xl:px-20">
+            <div className="relative mx-auto flex w-[90%] max-w-[1444px] justify-between lg:w-full lg:px-10 xl:px-20">
                 <div>
                     <Image src="/logo-white.svg" width={96} height={24} />
-                    <p className="mt-4 max-w-[250px]">
+                    <p className="mt-4 max-w-[250px] text-gray-400">
                         Desa Pare. Kecamatan Kranggan, Kabupaten Temanggung,
                         Jawa Tengah 56271
                     </p>
