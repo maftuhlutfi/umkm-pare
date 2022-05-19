@@ -1,0 +1,114 @@
+{
+  "id": "product",
+  "label": "product",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "Uid",
+          "placeholder": ""
+        }
+      },
+      "name": {
+        "type": "Text",
+        "config": {
+          "label": "Name",
+          "placeholder": ""
+        }
+      },
+      "category": {
+        "type": "Link",
+        "config": {
+          "label": "Category",
+          "select": "document",
+          "customtypes": [
+            "category"
+          ]
+        }
+      },
+      "pictures": {
+        "type": "Group",
+        "config": {
+          "label": "Pictures",
+          "fields": {
+            "picture": {
+              "type": "Image",
+              "config": {
+                "label": "Picture",
+                "constraint": {},
+                "thumbnails": []
+              }
+            }
+          }
+        }
+      },
+      "price": {
+        "type": "Number",
+        "config": {
+          "label": "Price",
+          "placeholder": ""
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph"
+        }
+      },
+      "variants": {
+        "type": "Group",
+        "config": {
+          "label": "Variants",
+          "fields": {
+            "name": {
+              "type": "Text",
+              "config": {
+                "label": "Tipe",
+                "placeholder": "Tipe varian"
+              }
+            },
+            "value": {
+              "type": "Text",
+              "config": {
+                "label": "Nama",
+                "placeholder": "Nama Variant"
+              }
+            },
+            "price": {
+              "type": "Number",
+              "config": {
+                "label": "Price",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      },
+      "material": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Material",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,list-item"
+        }
+      },
+      "umkm": {
+        "type": "Link",
+        "config": {
+          "label": "Umkm",
+          "select": "document",
+          "customtypes": [
+            "umkm"
+          ]
+        }
+      }
+    }
+  }
+}

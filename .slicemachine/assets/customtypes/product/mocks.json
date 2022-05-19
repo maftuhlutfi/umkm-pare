@@ -1,0 +1,77 @@
+{
+  "id": "8d57d2a5-aa61-440e-b2e5-c1004c048146",
+  "uid": "et-et-ea",
+  "type": "product",
+  "data": {
+    "name": "scale real-time niches",
+    "category": {
+      "link_type": "Web",
+      "url": "http://twitter.com"
+    },
+    "price": 6590,
+    "description": [
+      {
+        "type": "paragraph",
+        "text": "Ex eu reprehenderit aute non qui occaecat do commodo ex.",
+        "spans": []
+      }
+    ],
+    "material": [
+      {
+        "type": "paragraph",
+        "text": "Lorem excepteur eu qui.",
+        "spans": []
+      }
+    ],
+    "umkm": {
+      "link_type": "Web",
+      "url": "http://twitter.com"
+    },
+    "pictures": [
+      {
+        "picture": {
+          "dimensions": {
+            "width": 900,
+            "height": 500
+          },
+          "alt": "Placeholder image",
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1491975474562-1f4e30bc9468?w=900&h=500&fit=crop"
+        }
+      },
+      {
+        "picture": {
+          "dimensions": {
+            "width": 900,
+            "height": 500
+          },
+          "alt": "Placeholder image",
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869?w=900&h=500&fit=crop"
+        }
+      }
+    ],
+    "variants": [
+      {
+        "name": "grow proactive markets",
+        "value": "visualize cutting-edge infomediaries",
+        "price": 853
+      },
+      {
+        "name": "envisioneer collaborative blockchains",
+        "value": "generate virtual architectures",
+        "price": 3258
+      },
+      {
+        "name": "brand B2C supply-chains",
+        "value": "revolutionize dynamic convergence",
+        "price": 4701
+      },
+      {
+        "name": "reinvent scalable content",
+        "value": "enhance web-enabled networks",
+        "price": 9931
+      }
+    ]
+  }
+}

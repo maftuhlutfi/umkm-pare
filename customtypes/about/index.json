@@ -1,0 +1,19 @@
+{
+  "id": "about",
+  "label": "about",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "about-text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "About Text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,list-item,strong,em,hyperlink"
+        }
+      }
+    }
+  }
+}

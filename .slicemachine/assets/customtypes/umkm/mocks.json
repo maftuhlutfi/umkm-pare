@@ -1,0 +1,29 @@
+{
+  "id": "25a1d257-cb35-404c-892e-573553c2e6c4",
+  "uid": "autem-et-architecto",
+  "type": "umkm",
+  "data": {
+    "name": "innovate real-time platforms",
+    "picture": {
+      "dimensions": {
+        "width": 900,
+        "height": 500
+      },
+      "alt": "Placeholder image",
+      "copyright": null,
+      "url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04?w=900&h=500&fit=crop"
+    },
+    "description": [
+      {
+        "type": "paragraph",
+        "text": "Do tempor anim incididunt labore do nulla pariatur adipisicing. Ut et Lorem ipsum amet ullamco cupidatat consequat.",
+        "spans": []
+      }
+    ],
+    "address": "disintermediate intuitive mindshare",
+    "instagram": "scale end-to-end e-markets",
+    "email": "evolve mission-critical content",
+    "whatsapp": "envisioneer user-centric systems",
+    "facebook": "expedite scalable eyeballs"
+  }
+}

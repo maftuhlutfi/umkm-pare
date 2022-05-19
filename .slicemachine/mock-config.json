@@ -1,0 +1,45 @@
+{
+  "slices": {
+    "MainHero": {
+      "default": {
+        "items": {},
+        "primary": {}
+      }
+    }
+  },
+  "_cts": {
+    "umkm": {
+      "description": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      }
+    },
+    "product": {
+      "description": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      },
+      "material": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      },
+      "variants": {}
+    },
+    "home": {},
+    "category": {},
+    "about": {
+      "about-text": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      }
+    }
+  }
+}
