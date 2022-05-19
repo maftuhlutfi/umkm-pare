@@ -5,7 +5,12 @@ module.exports = {
     './layout/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        body: ['Open Sans'],
+        display: ['Raleway']
+      }
+    },
   },
   plugins: [],
 }
