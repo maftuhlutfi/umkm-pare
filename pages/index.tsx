@@ -1,14 +1,22 @@
 import type { NextPage } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import HomeProductItem from '../components/Home/HomeProductItem'
 import Button from '../components/shared/Button'
 import MainLayout from '../layout/MainLayout'
+import { createClient } from '../prismicio'
+import { ProductsResponse, ProductType } from '../ts/types/Product'
+import productsDataMapper from '../utils/mapper/productsDataMapper'
 
-const Home: NextPage = () => {
+type HomePropsTypes = {
+    products: ProductType[]
+}
+
+const Home: NextPage<HomePropsTypes> = ({ products }) => {
     return (
         <>
             <MainLayout>
-                <div className="flex items-center justify-between w-full">
+                <section className="mb-[108px] flex w-full items-center justify-between">
                     <div className="mr-20 max-w-[535px]">
                         <h1 className="mb-5 text-5xl leading-tight">
                             Yuk Dukung Kami untuk Indonesia Maju!
@@ -17,7 +25,7 @@ const Home: NextPage = () => {
                             Beli produk berkualitas kami untuk mendukung UMKM
                             dan ikut berkontribusi dalam memajukan usaha bangsa.
                         </p>
-                        <Link href="/product" passHref>
+                        <Link href="/products" passHref>
                             <Button>Lihat Produk</Button>
                         </Link>
                     </div>
@@ -27,10 +35,46 @@ const Home: NextPage = () => {
                         height={520}
                         className="object-cover shrink-0 "
                     />
-                </div>
+                </section>
+                <section className="mb-[108px] grid justify-center gap-16">
+                    <div className="text-center">
+                        <h1 className="mb-4 text-4xl leading-tight">
+                            Produk Terbaru
+                        </h1>
+                        <p className="mb-8 text-lg">
+                            Temukan produk terbaru dari UMKM yang ada.
+                        </p>
+                    </div>
+                    <div className="grid grid-cols-4 gap-12">
+                        {products.map((product, index) => (
+                            <HomeProductItem
+                                key={product.id}
+                                product={product}
+                            />
+                        ))}
+                    </div>
+                    <Link href="/products" passHref>
+                        <Button center type="outlined">
+                            Lihat Lainnya
+                        </Button>
+                    </Link>
+                </section>
             </MainLayout>
         </>
     )
 }
 
 export default Home
+
+export const getServerSideProps = async ({ previewData }: any) => {
+    const client = createClient({ previewData })
+
+    const products = await client.getAllByType<ProductsResponse>('product', {
+        fetchLinks: ['category.name', 'category.uid', 'umkm.name', 'umkm.uid'],
+        limit: 4,
+    })
+
+    return {
+        props: { products: productsDataMapper.toLocalList(products) }, // Will be passed to the page component as props
+    }
+}
