@@ -25,7 +25,7 @@ const ProductsPage: NextPage<ProductsPagePropsTypes> = ({
                     <h1 className="text-4xl">Pilih Produk Pilihanmu</h1>
                     <SortProduct />
                 </section>
-                <section className="flex">
+                <section className="flex items-start">
                     <FilterCategory categories={[...categories]} />
                     <div className="grid grid-cols-4 gap-6 ml-12">
                         {products.map((product) => (
