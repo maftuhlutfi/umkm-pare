@@ -1,19 +1,19 @@
 const menuList = [
     {
         title: 'Beranda',
-        href: '/'
+        href: '/',
     },
     {
         title: 'Produk',
-        href: '/product'
+        href: '/products',
     },
     {
         title: 'Tentang Kami',
-        href: '/about'
+        href: '/about',
     },
     {
         title: 'Kontak',
-        href: '/contact'
+        href: '/contact',
     },
 ]
 
