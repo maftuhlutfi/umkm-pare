@@ -7,6 +7,7 @@ type Props = {
     children: React.ReactNode
     onClick?: MouseEventHandler<HTMLAnchorElement>
     href?: 'string'
+    center?: boolean
 }
 
 const typeStyle = {
@@ -16,7 +17,10 @@ const typeStyle = {
 }
 
 const Button = React.forwardRef<HTMLAnchorElement, Props>(
-    ({ type, className, full, children, href, onClick }: Props, ref) => {
+    (
+        { type, className, full, children, href, onClick, center }: Props,
+        ref
+    ) => {
         return (
             <a
                 href={href}
@@ -26,7 +30,7 @@ const Button = React.forwardRef<HTMLAnchorElement, Props>(
                     full ? 'w-full' : 'w-fit'
                 } flex items-center justify-center py-4 px-5 font-display text-xl font-bold ${
                     type ? typeStyle[type] : typeStyle.primary
-                } ${className}`}
+                } ${center ? 'relative mx-auto' : ''} ${className}`}
             >
                 {children}
             </a>
