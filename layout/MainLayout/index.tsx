@@ -11,7 +11,7 @@ const MainLayout = ({ children }: Props) => {
     return (
         <>
             <Header />
-            <div className="font relative mx-auto mt-36 min-h-screen w-[90%] max-w-[1444px] lg:w-full lg:px-10 xl:px-20">
+            <div className="font relative mx-auto mt-36 mb-28 min-h-screen w-[90%] max-w-[1444px] lg:w-full lg:px-10 xl:px-20">
                 {children}
             </div>
             <WantJoinSection />

@@ -36,7 +36,7 @@ const Home: NextPage<HomePropsTypes> = ({ products }) => {
                         className="object-cover shrink-0 "
                     />
                 </section>
-                <section className="mb-[108px] grid justify-center gap-16">
+                <section className="grid justify-center gap-16">
                     <div className="text-center">
                         <h1 className="mb-4 text-4xl leading-tight">
                             Produk Terbaru
