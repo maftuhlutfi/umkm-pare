@@ -1,3 +1,4 @@
+import { predicate } from '@prismicio/client'
 import type { NextPage } from 'next'
 import FilterCategory from '../components/Products/FilterCategory'
 import ProductItem from '../components/Products/ProductItem'
@@ -46,9 +47,10 @@ const ProductsPage: NextPage<ProductsPagePropsTypes> = ({
 export default ProductsPage
 
 export const getServerSideProps = async ({ previewData, query }: any) => {
-    const { sort } = query
+    const { sort, category } = query
     const client = createClient({ previewData })
-    console.log(sort)
+
+    const categories = await client.getAllByType<CategoriesResponse>('category')
 
     const products = await client.getAllByType<ProductsResponse>('product', {
         fetchLinks: ['category.name', 'category.uid', 'umkm.name', 'umkm.uid'],
@@ -59,8 +61,20 @@ export const getServerSideProps = async ({ previewData, query }: any) => {
                     : 'my.product.price',
             direction: sort && sort == 'termurah' ? 'asc' : 'desc',
         },
+        predicates:
+            category && category !== 'all'
+                ? [
+                      predicate.any(
+                          'my.product.category',
+                          categories
+                              .filter((c) =>
+                                  category.split(',').includes(c.data.name)
+                              )
+                              .map((c: any) => c.id)
+                      ),
+                  ]
+                : undefined,
     })
-    const categories = await client.getAllByType<CategoriesResponse>('category')
 
     return {
         props: {
