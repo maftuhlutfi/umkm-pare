@@ -53,7 +53,15 @@ export const getServerSideProps = async ({ previewData, query }: any) => {
     const categories = await client.getAllByType<CategoriesResponse>('category')
 
     const products = await client.getAllByType<ProductsResponse>('product', {
-        fetchLinks: ['category.name', 'category.uid', 'umkm.name', 'umkm.uid'],
+        fetchLinks: [
+            'category.name',
+            'category.uid',
+            'umkm.name',
+            'umkm.uid',
+            'umkm.whatsapp',
+            'umkm.address',
+            'umkm.picture',
+        ],
         orderings: {
             field:
                 sort === 'terbaru' || sort === undefined

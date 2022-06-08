@@ -153,7 +153,7 @@ const ProductPage = ({
                             />
                         </div>
                     )}
-                    <div className="grid grid-flow-col gap-6 my-10 w-fit">
+                    <div className="grid grid-flow-col gap-6 mt-8 mb-14 w-fit">
                         <Button className="py-3 text-base">+ Keranjang</Button>
                         <Button
                             type="outlined"

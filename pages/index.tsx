@@ -70,7 +70,15 @@ export const getServerSideProps = async ({ previewData }: any) => {
     const client = createClient({ previewData })
 
     const products = await client.getAllByType<ProductsResponse>('product', {
-        fetchLinks: ['category.name', 'category.uid', 'umkm.name', 'umkm.uid'],
+        fetchLinks: [
+            'category.name',
+            'category.uid',
+            'umkm.name',
+            'umkm.uid',
+            'umkm.whatsapp',
+            'umkm.address',
+            'umkm.picture',
+        ],
         limit: 4,
     })
 
