@@ -21,6 +21,11 @@ export type ProductRemoteDataType = {
     description: RichTextField
     material: RichTextField
     pictures: { picture: ImageField & { url: string; alt: string } }[]
+    variants: {
+        name: string
+        value: string
+        price: number
+    }[]
 }
 
 export type ProductType = {
@@ -40,6 +45,11 @@ export type ProductType = {
     description: RichTextField
     material: RichTextField
     pictures: ImageField & { url: string; alt: string }[]
+    variants: {
+        name: string
+        value: string
+        price: number
+    }[]
 }
 
 export type ProductsResponse = PrismicDocument<

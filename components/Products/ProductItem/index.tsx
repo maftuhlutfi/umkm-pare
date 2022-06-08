@@ -17,8 +17,11 @@ const ProductItem = ({
         price,
         id,
         uid,
+        variants,
     },
 }: Props) => {
+    const variantsSortedByPrice = variants.sort((a, b) => a.price - b.price)
+
     return (
         <Link href={`/${umkmUid}/${uid}`}>
             <a className="flex flex-col border-2 border-gray-900">
@@ -29,7 +32,7 @@ const ProductItem = ({
                     objectFit="cover"
                     alt={pictures[0].alt}
                 />
-                <div className="p-4 bg-gray-900">
+                <div className="flex-1 p-4 bg-gray-900">
                     <div className="mb-2">
                         <h4 className="text-lg font-semibold text-white">
                             {name}
@@ -37,7 +40,11 @@ const ProductItem = ({
                         <p className="text-sm text-gray-200">{umkmName}</p>
                     </div>
                     <p className="text-xl font-bold text-white">
-                        {currencyFormatter(price)}
+                        {variants[0].name
+                            ? `${currencyFormatter(
+                                  variantsSortedByPrice[0].price
+                              )}`
+                            : currencyFormatter(price)}
                     </p>
                 </div>
             </a>
