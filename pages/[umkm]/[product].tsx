@@ -10,14 +10,26 @@ import { PrismicRichText } from '@prismicio/react'
 import VariantListButton from '../../components/ProductPage/VariantListButton'
 import Button from '../../components/shared/Button'
 import Link from 'next/link'
+import useCartStore from '../../store/useCartStore'
 
 type Props = {
     product: ProductType
 }
 
 const ProductPage = ({
-    product: { name, description, price, variants, pictures, material, umkm },
+    product: {
+        name,
+        description,
+        price,
+        variants,
+        pictures,
+        material,
+        umkm,
+        id,
+    },
 }: Props) => {
+    const { addToCart } = useCartStore()
+
     const breadCrumbsLinks = [
         {
             title: 'Beranda',
@@ -97,6 +109,19 @@ const ProductPage = ({
         )
     }
 
+    const handleAddToCart = () => {
+        const selectedVariant = mappedVariants
+            ? mappedVariants[0].variants.find((variant) => variant.isActive)
+                  ?.value
+            : undefined
+        addToCart({
+            id: `${id}-${selectedVariant}`,
+            name,
+            variant: selectedVariant,
+            price,
+        })
+    }
+
     return (
         <MainLayout>
             <BreadCrumbs links={breadCrumbsLinks} />
@@ -154,7 +179,12 @@ const ProductPage = ({
                         </div>
                     )}
                     <div className="grid grid-flow-col gap-6 mt-8 mb-14 w-fit">
-                        <Button className="py-3 text-base">+ Keranjang</Button>
+                        <Button
+                            className="py-3 text-base"
+                            onClick={handleAddToCart}
+                        >
+                            + Keranjang
+                        </Button>
                         <Button
                             type="outlined"
                             href={`https://wa.me/${umkm.whatsapp}?text=Hai%20${umkm.name}%2C%20saya%20ingin%20bertanya%20tentang%20produk%20${name}.`}

@@ -3,12 +3,17 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
 import { Buy } from 'react-iconly'
+import useCartStore from '../../../store/useCartStore'
 import menuList from './menuList'
+import { cartItemsCount } from '../../../utils/cartUtils'
 
 type Props = {}
 
 const Header = (props: Props) => {
     const { pathname } = useRouter()
+    const { cart } = useCartStore()
+
+    const cartItemsTotal = cartItemsCount(cart)
 
     return (
         <div className="fixed top-0 z-50 w-full py-8 bg-white">
@@ -33,9 +38,16 @@ const Header = (props: Props) => {
                         </Link>
                     ))}
                 </div>
-                <div className="relative">
-                    <Buy set="bold" size={32} />
-                </div>
+                <Link href="/cart">
+                    <a className="relative">
+                        <div className="absolute -right-1 -top-0.5 h-4 w-4 rounded-full bg-red-600">
+                            <p className="absolute text-xs font-semibold text-white transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                                {cartItemsTotal}
+                            </p>
+                        </div>
+                        <Buy set="bold" size={32} />
+                    </a>
+                </Link>
             </div>
         </div>
     )
