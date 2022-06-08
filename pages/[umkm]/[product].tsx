@@ -119,6 +119,7 @@ const ProductPage = ({
             name,
             variant: selectedVariant,
             price,
+            picture: pictures[0],
         })
     }
 
@@ -126,7 +127,7 @@ const ProductPage = ({
         <MainLayout>
             <BreadCrumbs links={breadCrumbsLinks} />
             <section className="relative flex">
-                <div className="sticky border-2 border-gray-900 top-32 h-fit shrink-0">
+                <div className="sticky top-32 h-fit shrink-0 border-2 border-gray-900">
                     <Image
                         src={pictures[0].url}
                         width={480}
@@ -136,7 +137,7 @@ const ProductPage = ({
                         objectPosition="center"
                     />
                 </div>
-                <div className="w-full ml-20">
+                <div className="ml-20 w-full">
                     <h2 className="mb-4 text-[32px] font-semibold">{name}</h2>
                     <h1 className="mb-6 text-4xl">
                         {mappedVariants
@@ -178,7 +179,7 @@ const ProductPage = ({
                             />
                         </div>
                     )}
-                    <div className="grid grid-flow-col gap-6 mt-8 mb-14 w-fit">
+                    <div className="mt-8 mb-14 grid w-fit grid-flow-col gap-6">
                         <Button
                             className="py-3 text-base"
                             onClick={handleAddToCart}
@@ -194,7 +195,7 @@ const ProductPage = ({
                             Tanya Dulu
                         </Button>
                     </div>
-                    <div className="flex items-center mt-10">
+                    <div className="mt-10 flex items-center">
                         <Image
                             src={umkm.picture.url}
                             width={48}
@@ -202,7 +203,7 @@ const ProductPage = ({
                             className="object-cover object-center"
                             alt={umkm.picture.alt}
                         />
-                        <div className="w-48 mx-6">
+                        <div className="mx-6 w-48">
                             <h3 className="mb-1 text-lg">{umkm.name}</h3>
                             <p className="text-xs line-clamp-1">
                                 {umkm.address}

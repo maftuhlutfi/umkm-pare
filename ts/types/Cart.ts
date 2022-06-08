@@ -4,4 +4,5 @@ export type CartItem = {
     variant?: string
     quantity?: number
     price: number
+    picture: { url: string; alt: string }
 }
