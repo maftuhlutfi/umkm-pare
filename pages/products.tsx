@@ -40,11 +40,20 @@ const ProductsPage: NextPage<ProductsPagePropsTypes> = ({
 
 export default ProductsPage
 
-export const getServerSideProps = async ({ previewData }: any) => {
+export const getServerSideProps = async ({ previewData, query }: any) => {
+    const { sort } = query
     const client = createClient({ previewData })
+    console.log(sort)
 
     const products = await client.getAllByType<ProductsResponse>('product', {
         fetchLinks: ['category.name', 'category.uid', 'umkm.name', 'umkm.uid'],
+        orderings: {
+            field:
+                sort === 'terbaru' || sort === undefined
+                    ? 'document.first_publication_date'
+                    : 'my.product.price',
+            direction: sort && sort == 'termurah' ? 'asc' : 'desc',
+        },
     })
     const categories = await client.getAllByType<CategoriesResponse>('category')
 
