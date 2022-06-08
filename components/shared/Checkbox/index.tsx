@@ -10,21 +10,21 @@ type Props = React.DetailedHTMLProps<
 
 const Checkbox = ({ id, label, ...props }: Props) => {
     return (
-        <div className="flex items-center">
-            <Image
-                src={
-                    props.checked
-                        ? '/icons/checkbox-active.svg'
-                        : '/icons/checkbox.svg'
-                }
-                width={20}
-                height={20}
-            />
+        <>
             <input {...props} id={id} type="checkbox" className="hidden" />
-            <label htmlFor={id} className="mt-px ml-4">
-                {label}
+            <label htmlFor={id} className="flex items-center cursor-pointer">
+                <Image
+                    src={
+                        props.checked
+                            ? '/icons/checkbox-active.svg'
+                            : '/icons/checkbox.svg'
+                    }
+                    width={20}
+                    height={20}
+                />
+                <span className="mt-px ml-4">{label}</span>
             </label>
-        </div>
+        </>
     )
 }
 

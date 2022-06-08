@@ -26,7 +26,12 @@ const ProductsPage: NextPage<ProductsPagePropsTypes> = ({
                     <SortProduct />
                 </section>
                 <section className="flex items-start">
-                    <FilterCategory categories={[...categories]} />
+                    <FilterCategory
+                        categories={[
+                            { id: '0', name: 'Semua', uid: null },
+                            ...categories,
+                        ]}
+                    />
                     <div className="grid grid-cols-4 gap-6 ml-12">
                         {products.map((product) => (
                             <ProductItem key={product.id} product={product} />
