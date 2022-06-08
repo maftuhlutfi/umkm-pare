@@ -16,6 +16,9 @@ export type ProductRemoteDataType = {
         data: {
             name: string
             uid: string
+            whatsapp: string
+            address: string
+            picture: ImageField & { url: string; alt: string }
         }
     }
     description: RichTextField
@@ -41,6 +44,9 @@ export type ProductType = {
     umkm: {
         name: string
         uid: string
+        whatsapp: string
+        address: string
+        picture: ImageField & { url: string; alt: string }
     }
     description: RichTextField
     material: RichTextField

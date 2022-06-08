@@ -23,6 +23,9 @@ const productsDataMapper: ProductsDataMapperType<
         umkm: {
             name: product.umkm.data.name,
             uid: product.umkm.data.uid,
+            whatsapp: product.umkm.data.whatsapp,
+            address: product.umkm.data.address,
+            picture: product.umkm.data.picture,
         },
         pictures: product.pictures.map((picture) => picture.picture),
     }),
