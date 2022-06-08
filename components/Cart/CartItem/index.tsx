@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
+import useCartStore from '../../../store/useCartStore'
 import { CartItem } from '../../../ts/types/Cart'
 import currencyFormatter from '../../../utils/currencyFormatter'
 import Checkbox from '../../shared/Checkbox'
@@ -8,16 +9,20 @@ type Props = {
     item: CartItem
 }
 
-const CartItem = ({
-    item: { id, name, variant, quantity, price, picture },
-}: Props) => {
+const CartItem = ({ item }: Props) => {
+    const { id, name, variant, quantity, price, picture, isChecked } = item
+    const { addToCart, removeItem, clearItem, toggleChecked } = useCartStore()
+
     return (
-        <div className="flex items-start">
+        <div className="flex items-start p-5 border border-gray-900">
             <Checkbox
-                id="id"
+                id={id}
+                name={name}
                 label=""
                 className="relative mr-1 top-10"
                 size={24}
+                checked={isChecked}
+                onChange={() => toggleChecked(id)}
             />
             <Image
                 src={picture.url}
@@ -34,13 +39,27 @@ const CartItem = ({
                         {currencyFormatter(price)}
                     </p>
                     <div className="flex items-center">
-                        <Image src="/icons/trash.svg" width={24} height={24} />
+                        <Image
+                            src="/icons/trash.svg"
+                            width={24}
+                            height={24}
+                            onClick={() => clearItem(id)}
+                            className="cursor-pointer"
+                        />
                         <div className="ml-4 grid h-6 w-[72px] grid-cols-3 border border-gray-900">
-                            <button className="text-center text-white bg-gray-900">
+                            <button
+                                className="text-center text-white bg-gray-900"
+                                onClick={() => removeItem(item)}
+                            >
                                 -
                             </button>
-                            <div className="text-center">{quantity}</div>
-                            <button className="text-center text-white bg-gray-900">
+                            <div className="text-center cursor-pointer">
+                                {quantity}
+                            </div>
+                            <button
+                                className="text-center text-white bg-gray-900"
+                                onClick={() => addToCart(item)}
+                            >
                                 +
                             </button>
                         </div>

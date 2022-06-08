@@ -5,4 +5,5 @@ export type CartItem = {
     quantity?: number
     price: number
     picture: { url: string; alt: string }
+    isChecked?: boolean
 }

@@ -10,7 +10,7 @@ export const addItemToCart = (state: CartItem[], itemToAdd: CartItem) => {
                 : cartItem
         })
     } else {
-        return [...state, { ...itemToAdd, quantity: 1 }]
+        return [...state, { ...itemToAdd, quantity: 1, isChecked: true }]
     }
 }
 
@@ -35,6 +35,19 @@ export const cartItemsCount = (cart: CartItem[]): number => {
     return cart.reduce(
         (total, cartItem) =>
             cartItem.quantity ? total + cartItem?.quantity : total,
+        0
+    )
+}
+
+export const cartItemsTotalCheckoutPrice = (cart: CartItem[]): number => {
+    return cart.reduce(
+        (total, cartItem) =>
+            cartItem.isChecked
+                ? total +
+                  (cartItem.quantity
+                      ? cartItem.price * cartItem.quantity
+                      : cartItem.price)
+                : total,
         0
     )
 }
