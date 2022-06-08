@@ -45,7 +45,6 @@ export const getServerSideProps = async ({ previewData }: any) => {
 
     const products = await client.getAllByType<ProductsResponse>('product', {
         fetchLinks: ['category.name', 'category.uid', 'umkm.name', 'umkm.uid'],
-        limit: 4,
     })
     const categories = await client.getAllByType<CategoriesResponse>('category')
 
