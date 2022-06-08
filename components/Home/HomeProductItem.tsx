@@ -18,7 +18,7 @@ const HomeProductItem = ({
 }: Props) => {
     return (
         <Link href={`/${umkmUid}/${uid}`}>
-            <a className="flex flex-col">
+            <a className="flex flex-col border-2 border-gray-900">
                 <Image
                     src={pictures[0].url}
                     width={278 * 2}
