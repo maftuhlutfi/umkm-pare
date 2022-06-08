@@ -30,18 +30,15 @@ const ProductItem = ({
                     alt={pictures[0].alt}
                 />
                 <div className="p-4 bg-gray-900">
-                    <div className="mb-3">
+                    <div className="mb-2">
                         <h4 className="text-lg font-semibold text-white">
                             {name}
                         </h4>
                         <p className="text-sm text-gray-200">{umkmName}</p>
                     </div>
-                    <p className="mb-4 text-xl font-bold text-white">
+                    <p className="text-xl font-bold text-white">
                         {currencyFormatter(price)}
                     </p>
-                    <Button type="dark" full className="py-3 text-base">
-                        + Keranjang
-                    </Button>
                 </div>
             </a>
         </Link>
