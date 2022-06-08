@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from 'react'
+import React, { HTMLAttributeAnchorTarget, MouseEventHandler } from 'react'
 
 type Props = {
     type?: 'primary' | 'outlined' | 'dark'
@@ -6,8 +6,9 @@ type Props = {
     full?: boolean
     children: React.ReactNode
     onClick?: MouseEventHandler<HTMLAnchorElement>
-    href?: 'string'
     center?: boolean
+    href?: string
+    target?: HTMLAttributeAnchorTarget
 }
 
 const typeStyle = {
@@ -18,7 +19,16 @@ const typeStyle = {
 
 const Button = React.forwardRef<HTMLAnchorElement, Props>(
     (
-        { type, className, full, children, href, onClick, center }: Props,
+        {
+            type = 'primary',
+            className,
+            full,
+            children,
+            href,
+            onClick,
+            center,
+            target,
+        }: Props,
         ref
     ) => {
         return (
@@ -29,8 +39,9 @@ const Button = React.forwardRef<HTMLAnchorElement, Props>(
                 className={`${
                     full ? 'w-full' : 'w-fit'
                 } flex cursor-pointer items-center justify-center py-4 px-5 font-display text-xl font-bold ${
-                    type ? typeStyle[type] : typeStyle.primary
+                    typeStyle[type]
                 } ${center ? 'relative mx-auto' : ''} ${className}`}
+                target={target}
             >
                 {children}
             </a>
