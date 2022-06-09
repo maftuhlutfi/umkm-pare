@@ -7,6 +7,7 @@ import TextArea from '../components/shared/TextArea'
 import MainLayout from '../layout/MainLayout'
 import emailjs from '@emailjs/browser'
 import Modal from '../components/shared/Modal'
+import Head from 'next/head'
 
 const ContactPage = () => {
     const [showModal, setShowModal] = useState(false)
@@ -36,6 +37,9 @@ const ContactPage = () => {
     }
     return (
         <>
+            <Head>
+                <title>Contact</title>
+            </Head>
             <MainLayout>
                 <section className="flex flex-col items-center w-full">
                     <h1 className="mb-2 text-[32px]">Hubungi Kami</h1>

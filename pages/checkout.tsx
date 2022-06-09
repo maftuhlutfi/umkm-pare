@@ -12,6 +12,7 @@ import currencyFormatter from '../utils/currencyFormatter'
 import emailjs from '@emailjs/browser'
 import Modal from '../components/shared/Modal'
 import { useRouter } from 'next/router'
+import Head from 'next/head'
 
 const CheckoutPage = () => {
     const { cart, clearCheckedItem } = useCartStore()
@@ -45,6 +46,9 @@ const CheckoutPage = () => {
 
     return (
         <>
+            <Head>
+                <title>Checkout</title>
+            </Head>
             <MainLayout>
                 <section className="flex items-start">
                     <form

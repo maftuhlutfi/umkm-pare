@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import HomeProductItem from '../components/Home/HomeProductItem'
@@ -15,6 +16,9 @@ type HomePropsTypes = {
 const Home: NextPage<HomePropsTypes> = ({ products }) => {
     return (
         <>
+            <Head>
+                <title>Beranda UMKM Desa Pare</title>
+            </Head>
             <MainLayout>
                 <section className="mb-[108px] flex w-full items-center justify-between">
                     <div className="mr-20 max-w-[535px]">

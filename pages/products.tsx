@@ -1,5 +1,6 @@
 import { predicate } from '@prismicio/client'
 import type { NextPage } from 'next'
+import Head from 'next/head'
 import FilterCategory from '../components/Products/FilterCategory'
 import ProductItem from '../components/Products/ProductItem'
 import SortProduct from '../components/Products/SortProduct'
@@ -21,6 +22,9 @@ const ProductsPage: NextPage<ProductsPagePropsTypes> = ({
 }) => {
     return (
         <>
+            <Head>
+                <title>Daftar Produk UMKM Desa Pare</title>
+            </Head>
             <MainLayout>
                 <section className="flex items-center justify-between mb-12">
                     <h1 className="text-4xl">Pilih Produk Pilihanmu</h1>
