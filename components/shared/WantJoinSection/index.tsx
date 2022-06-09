@@ -15,7 +15,11 @@ const WantJoinSection = (props: Props) => {
                         website ini!
                     </p>
                 </div>
-                <Link href="#" target="_blank" passHref>
+                <Link
+                    href="https://wa.me/6285702774243?text=Hai%20admin%2C%20saya%20tertarik%20untuk%20bergabung%20dengan%20UMKM%20Desa%20Pare"
+                    target="_blank"
+                    passHref
+                >
                     <Button>Gabung Sekarang!</Button>
                 </Link>
             </div>
