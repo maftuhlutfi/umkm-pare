@@ -4,7 +4,7 @@ type Props = React.DetailedHTMLProps<
     React.InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
 > & {
-    label: string
+    label?: string
 }
 
 const Input = ({ label, id, className, ...props }: Props) => {

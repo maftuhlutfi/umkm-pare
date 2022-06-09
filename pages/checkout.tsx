@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import React from 'react'
+import React, { RefObject, useRef } from 'react'
 import FormCard from '../components/Checkout/CheckoutHeader/FormCard'
 import Button from '../components/shared/Button'
 import Input from '../components/shared/Input'
@@ -9,28 +9,26 @@ import MainLayout from '../layout/MainLayout'
 import useCartStore from '../store/useCartStore'
 import { cartItemsTotalCheckoutPrice } from '../utils/cartUtils'
 import currencyFormatter from '../utils/currencyFormatter'
+import emailjs from '@emailjs/browser'
 
 const CheckoutPage = () => {
     const { cart } = useCartStore()
     const totalPrice = cartItemsTotalCheckoutPrice(cart)
 
+    const form = useRef<HTMLFormElement>(null)
+
     const handleSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault()
-        const target = e.target as typeof e.target & {
-            name: { value: string }
-            email: { value: string }
-            hp: { value: string }
-            address: { value: string }
-            pengiriman: { value: string }
-            pembayaran: { value: string }
-        }
 
-        const name = target.name.value
-        const email = target.email.value
-        const hp = target.hp.value
-        const address = target.address.value
-        const pengiriman = target.pengiriman.value
-        const pembayaran = target.pembayaran.value
+        emailjs
+            .sendForm(
+                'service_z6u9465',
+                'template_8za2e8r',
+                form?.current as HTMLFormElement | string,
+                'user_jjvPUtUMngArL3TR0aMM1'
+            )
+            .then((result) => console.log(result))
+            .catch((error) => console.log(error))
     }
 
     return (
@@ -40,6 +38,7 @@ const CheckoutPage = () => {
                     id="checkout-form"
                     className="grid w-full gap-6"
                     onSubmit={handleSubmit}
+                    ref={form}
                 >
                     <h4 className="text-xl font-semibold">
                         Informasi dan Alamat
@@ -107,6 +106,29 @@ const CheckoutPage = () => {
                             <option value="ovo">OVO</option>
                         </SelectInput>
                     </FormCard>
+                    <Input
+                        type="hidden"
+                        name="produk"
+                        value={cart
+                            .filter((i) => i.isChecked)
+                            .map((item) => `${item.name} x${item.quantity}`)
+                            .join(' | ')}
+                    />
+                    <Input
+                        type="hidden"
+                        name="total_harga"
+                        value={currencyFormatter(totalPrice)}
+                    />
+                    <Input
+                        type="hidden"
+                        name="biaya_pengiriman"
+                        value={currencyFormatter(20000)}
+                    />
+                    <Input
+                        type="hidden"
+                        name="total"
+                        value={currencyFormatter(totalPrice + 20000)}
+                    />
                 </form>
                 <div className="sticky w-64 p-5 ml-8 border border-gray-900 top-32 shrink-0">
                     <h5 className="mb-6 text-lg">Ringkasan Pesanan</h5>
