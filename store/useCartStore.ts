@@ -9,6 +9,7 @@ type CartStoreType = {
     removeItem: (item: CartItem) => void
     clearItem: (id: string) => void
     toggleChecked: (id: string) => void
+    clearCheckedItem: () => void
 }
 
 const useCartStore = create<CartStoreType>()(
@@ -39,6 +40,11 @@ const useCartStore = create<CartStoreType>()(
                                 ? { ...item, isChecked: !item.isChecked }
                                 : item
                         ),
+                    })),
+                clearCheckedItem: () =>
+                    set((state) => ({
+                        ...state,
+                        cart: state.cart.filter((item) => !item.isChecked),
                     })),
             }),
             { name: 'cart' }
