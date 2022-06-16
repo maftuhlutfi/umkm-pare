@@ -131,8 +131,8 @@ const ProductPage = ({
             </Head>
             <MainLayout>
                 <BreadCrumbs links={breadCrumbsLinks} />
-                <section className="relative flex">
-                    <div className="sticky border-2 border-gray-900 top-32 h-fit shrink-0">
+                <section className="relative flex flex-col lg:flex-row">
+                    <div className="border-2 border-gray-900 top-32 h-fit shrink-0 lg:sticky">
                         <Image
                             src={pictures[0].url}
                             width={480}
@@ -142,7 +142,7 @@ const ProductPage = ({
                             objectPosition="center"
                         />
                     </div>
-                    <div className="w-full ml-20">
+                    <div className="w-full mt-8 lg:mt-0 lg:ml-20">
                         <h2 className="mb-4 text-[32px] font-semibold">
                             {name}
                         </h2>
@@ -186,10 +186,11 @@ const ProductPage = ({
                                 />
                             </div>
                         )}
-                        <div className="grid grid-flow-col gap-6 mt-8 mb-14 w-fit">
+                        <div className="grid grid-flow-col gap-6 mt-8 mb-14 lg:w-fit">
                             <Button
                                 className="py-3 text-base"
                                 onClick={handleAddToCart}
+                                full
                             >
                                 + Keranjang
                             </Button>
@@ -198,6 +199,7 @@ const ProductPage = ({
                                 href={`https://wa.me/${umkm.whatsapp}?text=Hai%20${umkm.name}%2C%20saya%20ingin%20bertanya%20tentang%20produk%20${name}.`}
                                 className="py-3 text-base"
                                 target="_blank"
+                                full
                             >
                                 Tanya Dulu
                             </Button>
@@ -219,7 +221,7 @@ const ProductPage = ({
                             <Link href={`/${umkm.uid}`}>
                                 <Button
                                     type="outlined"
-                                    className="px-3 py-1.5 text-sm"
+                                    className="px-3 py-1.5 text-xs lg:text-sm"
                                 >
                                     Lihat UMKM
                                 </Button>
