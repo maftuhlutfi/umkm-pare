@@ -49,7 +49,7 @@ const ContactPage = () => {
                     <form
                         ref={form}
                         onSubmit={handleSubmit}
-                        className="w-[90%] max-w-[600px]"
+                        className="w-full max-w-[600px] lg:w-[90%]"
                     >
                         <FormCard>
                             <Input
