@@ -12,15 +12,15 @@ const Footer = (props: Props) => {
 
     return (
         <div className="w-full py-10 bg-gray-900">
-            <div className="relative mx-auto flex w-[90%] max-w-[1444px] justify-between lg:w-full lg:px-10 xl:px-20">
-                <div>
+            <div className="relative mx-auto flex w-[90%] max-w-[1444px] flex-col justify-between lg:w-full lg:flex-row lg:px-10 xl:px-20">
+                <div className="flex flex-col items-center mb-12 text-center lg:mb-0 lg:items-start lg:text-left">
                     <Image src="/logo-white.svg" width={96} height={24} />
-                    <p className="mt-4 max-w-[250px] text-gray-400">
+                    <p className="mt-4 text-gray-400 lg:max-w-[250px]">
                         Desa Pare. Kecamatan Kranggan, Kabupaten Temanggung,
                         Jawa Tengah 56271
                     </p>
                 </div>
-                <div>
+                <div className="flex flex-col items-center mb-12 lg:mb-0 lg:items-start">
                     <h3 className="mb-4 text-xl font-bold text-white">Menu</h3>
                     <div className="flex items-center gap-12">
                         {menuList.map(({ title, href }, index) => (
@@ -38,7 +38,7 @@ const Footer = (props: Props) => {
                         ))}
                     </div>
                 </div>
-                <div>
+                <div className="flex flex-col items-center lg:items-start">
                     <h3 className="mb-4 text-xl font-bold text-white">
                         Sosial Media
                     </h3>
