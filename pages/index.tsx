@@ -20,8 +20,8 @@ const Home: NextPage<HomePropsTypes> = ({ products }) => {
                 <title>Beranda UMKM Desa Pare</title>
             </Head>
             <MainLayout>
-                <section className="mb-[108px] flex w-full items-center justify-between">
-                    <div className="mr-20 max-w-[535px]">
+                <section className="mb-[108px] flex w-full flex-col-reverse items-center justify-between lg:flex-row">
+                    <div className="mr-20 mt-12 max-w-[535px] lg:mt-0">
                         <h1 className="mb-5 text-5xl leading-tight">
                             Yuk Dukung Kami untuk Indonesia Maju!
                         </h1>
@@ -49,7 +49,7 @@ const Home: NextPage<HomePropsTypes> = ({ products }) => {
                             Temukan produk terbaru dari UMKM yang ada.
                         </p>
                     </div>
-                    <div className="grid grid-cols-4 gap-12">
+                    <div className="grid grid-cols-2 gap-8 lg:grid-cols-4 lg:gap-12">
                         {products.map((product, index) => (
                             <HomeProductItem
                                 key={product.id}
