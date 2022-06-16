@@ -29,7 +29,7 @@ const CartPage = () => {
                                     <CartItem key={item.id} item={item} />
                                 ))}
                             </div>
-                            <div className="sticky w-64 p-5 ml-8 border border-gray-900 top-32 shrink-0">
+                            <div className="fixed bottom-8 z-10 w-[90%] shrink-0 border border-gray-900 bg-white p-5 lg:sticky lg:bottom-0 lg:top-32 lg:ml-8 lg:w-64">
                                 <h5 className="mb-6 text-lg">
                                     Ringkasan Pesanan
                                 </h5>
