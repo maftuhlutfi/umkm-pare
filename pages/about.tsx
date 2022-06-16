@@ -10,8 +10,8 @@ const AboutPage = () => {
                 <title>Tentang Kami</title>
             </Head>
             <MainLayout>
-                <section className="flex items-center w-full">
-                    <div className="mr-16 shrink-0">
+                <section className="flex flex-col items-center w-full lg:flex-row">
+                    <div className="w-full shrink-0 lg:mr-16 lg:w-auto">
                         <Image
                             src="/about-img.jpg"
                             width={500}
@@ -19,7 +19,7 @@ const AboutPage = () => {
                             className="object-cover object-center"
                         />
                     </div>
-                    <div className="shrink">
+                    <div className="mt-8 shrink lg:mt-0">
                         <h1 className="mb-4 text-[32px]">Tentang Kami</h1>
                         <p className="text-lg leading-8">
                             UMKM adalah website yang memuat produk-produk UMKM
