@@ -25,7 +25,7 @@ const UmkmPage = ({ umkm, products }: Props) => {
                 <UmkmInformation umkm={umkm} />
                 <section className="mt-16">
                     <h3 className="mb-8 text-2xl">Daftar Produk</h3>
-                    <div className="grid grid-cols-5 gap-5">
+                    <div className="grid grid-cols-2 gap-5 md:grid-cols-4 2xl:grid-cols-5">
                         {products.map((product) => (
                             <ProductItem key={product.id} product={product} />
                         ))}

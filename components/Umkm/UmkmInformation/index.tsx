@@ -25,8 +25,8 @@ const UmkmInformation = ({
 
     return (
         <>
-            <section className="flex items-center justify-between p-5 border border-gray-900">
-                <div className="flex items-center">
+            <section className="flex flex-col items-center justify-between p-5 border border-gray-900 lg:flex-row">
+                <div className="flex items-center mb-8 lg:mb-0">
                     <Image
                         src={picture.url}
                         width={80}
@@ -39,18 +39,20 @@ const UmkmInformation = ({
                         <p className="text-sm">{address}</p>
                     </div>
                 </div>
-                <div className="flex">
+                <div className="grid items-center w-full grid-cols-2 gap-4 lg:flex lg:w-fit">
                     <Button
                         href={`https://wa.me/${whatsapp}`}
                         target="_blank"
                         className="px-5 py-3 mr-5 text-base"
+                        full
                     >
                         Hubungi
                     </Button>
                     <Button
                         type="outlined"
-                        className="px-5 py-3 text-base"
+                        className="px-5 py-3 text-base whitespace-nowrap"
                         onClick={() => setInfoModalOpen(true)}
+                        full
                     >
                         Info Toko
                     </Button>
@@ -61,7 +63,7 @@ const UmkmInformation = ({
                 show={infoModalOpen}
                 onClose={() => setInfoModalOpen(false)}
             >
-                <section className="grid grid-flow-col gap-20">
+                <section className="grid gap-8 lg:grid-flow-col lg:gap-20">
                     <div className="flex-1">
                         <h3 className="mb-2">Deskripsi</h3>
                         <PrismicRichText field={description} />
