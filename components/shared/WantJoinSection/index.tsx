@@ -7,8 +7,8 @@ type Props = {}
 const WantJoinSection = (props: Props) => {
     return (
         <div className="w-full py-20 bg-gray-100">
-            <div className="relative mx-auto flex w-[90%] max-w-[1444px] items-center justify-between lg:w-full lg:px-10 xl:px-20">
-                <div>
+            <div className="relative mx-auto flex w-[90%] max-w-[1444px] flex-col items-center justify-between lg:w-full lg:flex-row lg:px-10 xl:px-20">
+                <div className="mb-8 text-center lg:mb-0 lg:text-left">
                     <h1 className="mb-5 text-4xl">Ingin bergabung?</h1>
                     <p>
                         Yuk hubungi kami agar produk UMKM milikmu ditampilkan di
