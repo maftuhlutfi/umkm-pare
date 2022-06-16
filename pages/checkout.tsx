@@ -50,7 +50,7 @@ const CheckoutPage = () => {
                 <title>Checkout</title>
             </Head>
             <MainLayout>
-                <section className="flex items-start">
+                <section className="flex flex-col items-start lg:flex-row">
                     <form
                         id="checkout-form"
                         className="grid w-full gap-6"
@@ -149,7 +149,7 @@ const CheckoutPage = () => {
                             value={currencyFormatter(totalPrice + 20000)}
                         />
                     </form>
-                    <div className="sticky w-64 p-5 ml-8 border border-gray-900 top-32 shrink-0">
+                    <div className="w-full p-5 -mt-16 bg-white border border-gray-900 shrink-0 lg:sticky lg:bottom-0 lg:top-32 lg:-mt-0 lg:ml-8 lg:w-64">
                         <h5 className="mb-6 text-lg">Ringkasan Pesanan</h5>
                         <div className="grid gap-2 pb-4 mb-6 text-sm border-b border-b-gray-400">
                             {cart
