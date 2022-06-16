@@ -30,14 +30,14 @@ const ProductsPage: NextPage<ProductsPagePropsTypes> = ({
                     <h1 className="text-4xl">Pilih Produk Pilihanmu</h1>
                     <SortProduct />
                 </section>
-                <section className="flex items-start">
+                <section className="flex flex-col items-start lg:flex-row">
                     <FilterCategory
                         categories={[
                             { id: '0', name: 'Semua', uid: null },
                             ...categories,
                         ]}
                     />
-                    <div className="grid grid-cols-4 gap-6 ml-12">
+                    <div className="grid grid-cols-2 gap-6 mt-12 md:grid-cols-3 lg:ml-12 lg:mt-0 xl:grid-cols-4">
                         {products.map((product) => (
                             <ProductItem key={product.id} product={product} />
                         ))}

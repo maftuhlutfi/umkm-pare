@@ -11,6 +11,7 @@ type Props = {
 
 const FilterCategory = ({ categories }: Props) => {
     const router = useRouter()
+    const [showFilter, setShowFilter] = useState(false)
 
     const [filter, setFilter] = useState<
         (CategoryType & { checked: boolean })[]
@@ -79,27 +80,63 @@ const FilterCategory = ({ categories }: Props) => {
     }, [router])
 
     return (
-        <aside className="p-8 border-2 border-gray-900 shrink-0">
-            <div className="flex items-center mb-8">
-                <Image src="/icons/filter.svg" width={24} height={24} />
-                <h5 className="ml-4 text-lg">Filter Kategori</h5>
-            </div>
-            <div className="grid gap-6 mb-6">
-                {filter.map(({ name, id, checked }) => (
-                    <Checkbox
-                        id={id}
-                        key={id}
-                        name="filter"
-                        label={name}
-                        value={id}
-                        checked={checked}
-                        onChange={handleChange}
+        <aside className="w-full p-6 border-2 border-gray-900 top-36 shrink-0 lg:sticky lg:w-auto lg:p-8">
+            <div
+                className={`${
+                    showFilter ? 'mb-8' : 'mb-0 lg:mb-8'
+                } flex cursor-pointer items-center justify-between lg:cursor-default`}
+                onClick={() => setShowFilter((p) => !p)}
+            >
+                <div className="flex items-center">
+                    <Image src="/icons/filter.svg" width={24} height={24} />
+                    <h5 className="ml-4 text-lg">Filter Kategori</h5>
+                </div>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={20}
+                    height={20}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    className="lg:hidden"
+                >
+                    <path
+                        stroke="#1A202C"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="m19 8.596-7 7-7-7"
                     />
-                ))}
+                </svg>
             </div>
-            <Button className="text-sm" center full onClick={handleFilterApply}>
-                Terapkan
-            </Button>
+            <div
+                className={`${
+                    showFilter
+                        ? 'h-auto'
+                        : 'h-0 overflow-x-hidden lg:h-auto lg:overflow-auto'
+                }`}
+            >
+                <div className="grid grid-cols-2 gap-6 mb-6 lg:grid-cols-1">
+                    {filter.map(({ name, id, checked }) => (
+                        <Checkbox
+                            id={id}
+                            key={id}
+                            name="filter"
+                            label={name}
+                            value={id}
+                            checked={checked}
+                            onChange={handleChange}
+                        />
+                    ))}
+                </div>
+                <Button
+                    className="text-sm"
+                    center
+                    full
+                    onClick={handleFilterApply}
+                >
+                    Terapkan
+                </Button>
+            </div>
         </aside>
     )
 }
